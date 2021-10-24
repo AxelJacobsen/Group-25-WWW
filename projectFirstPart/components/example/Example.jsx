@@ -103,7 +103,7 @@ class Example extends React.Component {
         <h1>CS142 Project#4 React.js Example</h1>
 
         <div className="motto-update">
-          {/* Your problem #1 motto displaying and updating widget goes here */}
+            {/* Your problem #1 motto displaying and updating widget goes here */}
         </div>
 
         <p>
@@ -155,7 +155,7 @@ class Example extends React.Component {
         </p>
 
         <p>
-          The Example class constructor sets the object&apos;s
+          The Example ass constructor sets the object&apos;s
           property <code>state.name</code> (see the assignment
           to <code>this.state.name</code> in <code>Example.jsx</code>)
           from the model in the DOM which has a value of &ldquo; {this.state.name}
@@ -172,9 +172,8 @@ class Example extends React.Component {
           should render as:
         </p>
         <p className="cs142-example-output">
-          My name is &ldquo; {this.state.name} &rdquo;.
+                My name is &ldquo; {this.state.name} &rdquo;.
         </p>
-
         <h3>
           One-way binding from JavaScript to HTML
         </h3>
