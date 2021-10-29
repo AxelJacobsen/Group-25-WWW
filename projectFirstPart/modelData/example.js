@@ -20,3 +20,8 @@ cs142models.exampleModel = function() {
    };
 };
 
+cs142models.exampleMotto = function() {
+   return {
+      motto: 'Lets get this bread'
+   };
+};
