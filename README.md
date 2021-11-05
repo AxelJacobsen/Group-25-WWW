@@ -7,3 +7,6 @@
 
 *Link til faget
 -https://ntnu.blackboard.com/webapps/blackboard/content/listContent.jsp?course_id=_27688_1&content_id=_1363469_1&mode=reset
+
+*Notion link (Den nettsia med masse info)
+https://ntnu-prog2053-2021.notion.site/ntnu-prog2053-2021/PROG2053-e0aab8ce0066457ebc1d4f558cc3bd2b
