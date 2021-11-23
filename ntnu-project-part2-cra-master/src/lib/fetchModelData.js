@@ -15,10 +15,19 @@
 
 function fetchModel(url) {
 	return new Promise(function (resolve, reject) {
-		console.log(url);
-		setTimeout(() => reject(new Error({status: 501, statusText: 'Not Implemented'})), 0);
-		// On Success return:
-		// resolve({data: getResponseObject});
+	  const xhr = new XMLHttpRequest();
+	  xhr.open('GET', url);
+	  xhr.send();
+	  xhr.onreadystatechange = function () {
+			if (this.readyState !== 4) {
+		  return;
+			}
+			if (this.status !== 200) {
+		  reject(xhr.status, xhr.statusText);
+			} else {
+		  resolve({data: JSON.parse(this.responseText)});
+			}
+	  };
 	});
 }
 
