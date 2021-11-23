@@ -6,7 +6,7 @@
  * This builds on the webServer of previous projects in that it exports the current
  * directory via webserver listing on a hard code (see portno below) port. It also
  * establishes a connection to the MongoDB named 'cs142project6'.
- *
+ *npm
  * To start the webserver run the command:
  *    node webServer.js
  *
@@ -45,7 +45,7 @@ const express = require('express');
 const app = express();
 
 // XXX - Your submission should work without this line. Comment out or delete this line for tests and before submission!
-const cs142models = require('./modelData/photoApp.js').cs142models;
+const PROG2053models = require('./src/modelData/photoApp.js');
 
 mongoose.connect('mongodb://localhost/cs142project6', { useNewUrlParser: true, useUnifiedTopology: true });
 
