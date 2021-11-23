@@ -10,14 +10,49 @@ import './States.css';
 class States extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('PROG2053Models.statesModel()', PROG2053Models.statesModel());
+		this.state = {
+			states: PROG2053Models.statesModel().sort(),
+			searchValue: '',
+			errorMessage: null
+		};
 	}
+
+	filterStates = (event) => {
+		const value = event.target.value;
+		const filteredStates = PROG2053Models.statesModel()
+			.filter((state) =>
+				state.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+			);
+		this.setState({
+			states: filteredStates,
+			searchValue: value,
+			errorMessage: filteredStates.length === 0 ? 'No matches' : null
+		});
+	};
+
+	renderResults = () => {
+		if (this.state.errorMessage !== null) {
+			return <div>{this.state.errorMessage}</div>;
+		}
+
+		return (
+			<ul>
+				{this.state.states.map((state) =>
+					<li key={state}>{state}</li>
+				)}
+			</ul>
+		);
+	};
 
 	render() {
 		return (
-			<div>
-				Replace this with the code for PROG2053 Part #1, Problem #2
-			</div>
+			<>
+				<input placeholder="Search" value={this.state.searchValue} onChange={(event) => this.filterStates(event)} />
+				<div>
+					<i>Search value: {this.state.searchValue}</i>
+				</div>
+				{this.renderResults()}
+			</>
 		);
 	}
 }

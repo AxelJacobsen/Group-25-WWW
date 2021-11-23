@@ -1,8 +1,6 @@
 import React from 'react';
 import PROG2053Models from '../modelData/data';
 import './Example.css';
-import 'prismjs/components/prism-jsx.js';
-import '../../node_modules/prismjs/themes/prism.css';
 
 class Example extends React.Component {
 	constructor(props) {
