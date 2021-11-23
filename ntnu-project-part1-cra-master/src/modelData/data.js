@@ -1,7 +1,12 @@
 class PROG2053Models {
 	static exampleModel = () => {
 		return {
-			name: 'Unknown Name'
+			name: 'Group 25'
+		};
+	};
+	static exampleMotto = () => {
+		return {
+			motto: 'Lets get this bread.'
 		};
 	};
 
