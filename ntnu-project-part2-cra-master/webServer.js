@@ -45,7 +45,7 @@ const express = require('express');
 const app = express();
 
 // XXX - Your submission should work without this line. Comment out or delete this line for tests and before submission!
-const PROG2053models = require('./src/modelData/photoApp.js');
+const PROG2053models = require('./src/model-data/PhotoApp.js');
 
 mongoose.connect('mongodb://localhost/cs142project6', { useNewUrlParser: true, useUnifiedTopology: true });
 

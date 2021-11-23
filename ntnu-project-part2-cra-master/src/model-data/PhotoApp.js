@@ -258,4 +258,4 @@ class PROG2053Models {
 
 PROG2053Models.populatePhotoComments();
 
-export default PROG2053Models;
+module.exports = PROG2053Models;
