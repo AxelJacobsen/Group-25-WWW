@@ -2,7 +2,8 @@
   "name": "part2",
   "version": "0.1.0",
   "scripts": {
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "start-express": "nodemon webServer.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
