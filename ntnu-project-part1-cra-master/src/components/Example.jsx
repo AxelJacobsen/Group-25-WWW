@@ -10,12 +10,10 @@ class Example extends React.Component {
 		super(props);
 		this.state = {
 			name: PROG2053Models.exampleModel().name,
-			motto: PROG2053Models.exampleMotto().motto,
 			counter: 0,
 			inputValue: '',
 			buttonWasClicked: ''
 		};
-		this.updateMotto = (event) => this.mottoChange(event);
 	}
 
 	componentDidMount() {
@@ -32,11 +30,6 @@ class Example extends React.Component {
 
 	handleChange = (event) => {
 		this.setState({inputValue: event.target.value});
-	};
-
-	// Method called when the input box is typed into.
-	mottoChange = (event) => {
-		this.setState({motto: event.target.value});
 	};
 
 	handleButtonClick = (buttonName) => {
@@ -71,12 +64,6 @@ class Example extends React.Component {
 
 				<div className="motto-update">
 					{/* Your problem #1 motto displaying and updating widget goes here */}
-					<p>
-						My name is &ldquo; {this.state.motto} &rdquo; <br></br>
-						<label htmlFor="mottoUpdate">Update motto:
-						</label>
-						<input id="mottoUpdate" type="text" value={this.state.motto} onChange={this.updateMotto} />
-					</p>
 				</div>
 
 				<p>
