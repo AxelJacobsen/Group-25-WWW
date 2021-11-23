@@ -72,7 +72,8 @@ class Example extends React.Component {
 				<div className="motto-update">
 					{/* Your problem #1 motto displaying and updating widget goes here */
 					<p>
-						My name is &ldquo; {this.state.motto} &rdquo; <br></br>
+						My name is &ldquo; {this.state.name}, &rdquo; <br></br>
+						and my motto is:  &ldquo; {this.state.motto}, &rdquo; <br></br>
 						<label htmlFor="mottoUpdate">Update motto:
 						</label>
 						<input id="mottoUpdate" type="text" value={this.state.motto} onChange={this.updateMotto} />
