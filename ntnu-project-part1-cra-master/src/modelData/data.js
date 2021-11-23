@@ -4,6 +4,11 @@ class PROG2053Models {
 			name: 'Unknown Name'
 		};
 	};
+	static exampleMotto = () => {
+		return {
+			motto: 'Lets get this bread.'
+		};
+	};
 
 	static statesModel = () => {
 		return [
