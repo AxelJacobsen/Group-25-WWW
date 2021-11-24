@@ -1,7 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {
-	Typography
+	Typography,
+	Divider,
+	List,
+	ListItem,
+	ListItemText
 } from '@material-ui/core';
 import './UserPhotos.css';
 import PROG2053Models from '../../../model-data/PhotoApp';
@@ -16,33 +20,85 @@ class UserPhotos extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			photos: [],
-			testValue: -1
+			photos: []
 		};
 
-		// Get userid from url
+		// Set userId
 		this.userId = this.props.match.params.userId;
 
-		// Fetch the fetchModel function
-		const promise = fetchModel(`/photosOfUser/${this.userId}`);
-
-		// If the request was successful (resolved), fill photos with the response data
-		promise.then((response) => {
-			this.testValue = 10;
-		}, (reason) => {
-			this.testValue = -2;
+		// Fetch user data
+		fetchModel(`/user/${this.userId}`).then((response) => {
+			this.user = response.data;
 		});
 	}
 
+	/**
+     * Insert photo data if the component mounted
+     */
+	componentDidMount() {
+		// Fetch user photos
+		fetchModel(`/photosOfUser/${this.userId}`).then((response) => {
+			this.setState({
+				photos: response.data
+			});
+		});
+	}
+
+	/**
+     * Render function
+     * @returns
+     */
 	render() {
-		return (
-			<Typography variant="body1">
-				This should be the UserPhotos view of the PhotoShare app. Since
-				it is invoked from React Router the params from the route will be
-				in property match. So this should show details of user:
-				{this.testValue}. You can fetch the model for the user from
-				PROG2053Models.photoOfUserModel(userId) through the url /photosOfUser/:id
-			</Typography>
+		return this.user ? (
+			<div>
+				<Typography variant="h5">
+					{this.user.first_name}s photos:
+				</Typography>
+				<Divider />
+
+				{/* Iterate photos */}
+				<List component="nav">
+					{this.state.photos.map((photo) => {
+						return (
+							<List component="nav2" key = {photo.file_name}>
+								{/* Add image */}
+								<img src={`/images/${photo.file_name}`}></img>
+
+								{/* Iterate photo comments (if they exist) */}
+								{photo.comments ? (
+									photo.comments.map((comment) => {
+										return (
+											<ListItem key = {comment.comment}>
+												{/* Display the comment */}
+												<ListItemText
+													primary= {`${comment.comment}`}
+												/>
+
+												{/*... and create a link to the commenter's profile */}
+												<a href = {`/photo-share/users/${comment.user._id}`}>
+													<ListItemText
+														primary= {<br />}
+														secondary= {comment.user.first_name}
+													/>
+												</a>
+
+												<br />
+											</ListItem>
+										);
+									})
+								) : (
+									<div></div>
+								)}
+								<br /><br />
+								<Divider />
+								<br /><br />
+							</List>
+						);
+					})}
+				</List>
+			</div>
+		) : (
+			<div/>
 		);
 	}
 }
