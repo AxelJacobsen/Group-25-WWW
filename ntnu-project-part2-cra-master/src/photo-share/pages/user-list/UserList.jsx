@@ -2,7 +2,6 @@ import React from 'react';
 import {
 	Divider,
 	List,
-	Link,
 	ListItem,
 	ListItemText,
 	Typography
@@ -16,7 +15,7 @@ import PROG2053Models from '../../../model-data/PhotoApp';
  */
 class UserList extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			users: PROG2053Models.userListModel()
 		};
@@ -35,11 +34,11 @@ class UserList extends React.Component {
 							<a href = {`/photo-share/users/${username._id}`} key={username._id}>
 								<ListItem>
 									<ListItemText
-									primary= {`${username.first_name} ${username.last_name}`}
+										primary= {`${username.first_name} ${username.last_name}`}
 									/>
 								</ListItem>
-							<Divider />
-						</a>
+								<Divider />
+							</a>
 						);
 					})}
 				</List>
