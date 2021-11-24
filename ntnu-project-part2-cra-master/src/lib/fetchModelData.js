@@ -1,3 +1,6 @@
+const Promise = require('promise');
+
+
 /**
     * FetchModel - Fetch a model from the web server.
     *     url - string - The URL to issue the GET request.
@@ -11,24 +14,24 @@
     *    statusText:  The statusText from the xhr request
     *
 */
-const Promise = require('promise')
-
 function fetchModel(url) {
-    return new Promise(function (resolve, reject) {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', url);
-      xhr.send();
-      xhr.onreadystatechange = function () {
-            if (this.readyState !== 4) {
-          return;
-            }
-            if (this.status !== 200) {
-          reject(xhr.status, xhr.statusText);
-            } else {
-          resolve({data: JSON.parse(this.responseText)});
-            }
-      };
-    });
+	return new Promise(function (resolve, reject) {
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', url);
+		XMLHttpRequest.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); //???
+		xhr.send();
+
+		xhr.onreadystatechange = function () {
+			if (this.readyState !== 4) {
+				return;
+			}
+			if (this.status !== 200) {
+				reject(xhr.status, xhr.statusText);
+			} else {
+				resolve({data: JSON.parse(this.responseText)});
+			}
+		};
+	});
 }
 
 export default fetchModel;
