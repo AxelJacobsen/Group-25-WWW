@@ -19,8 +19,9 @@ class UserDetail extends React.Component {
 		this.state = {
 			user: undefined
 		}
-		const promise = fetchModel(`/user/${this.userId}`)
+		const promise = fetchModel(`/user/${this.props.match.params.userId}`)
 		promise.then((response) => {
+			console.log('Sucessfully loaded into user')
 			this.setState({user: response.data})
 		},
 			(reason) => {

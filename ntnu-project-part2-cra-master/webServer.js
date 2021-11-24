@@ -42,7 +42,9 @@ const Photo = require('./schema/photo.js');
 const SchemaInfo = require('./schema/schemaInfo.js');
 
 const express = require('express');
+const cors = require('cors')
 const app = express();
+app.use(cors())
 
 // XXX - Your submission should work without this line. Comment out or delete this line for tests and before submission!
 const PROG2053models = require('./src/model-data/PhotoApp.js');
