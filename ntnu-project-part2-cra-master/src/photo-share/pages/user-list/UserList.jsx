@@ -36,7 +36,7 @@ class UserList extends React.Component {
 					<Divider />
 				</List>
 				<Typography variant="body1">
-					The model comes in from PROG2053Models.userListModel()
+					The model comes in from PROG2053Models.userListModel() through the url /user/list
 				</Typography>
 			</div>
 		);

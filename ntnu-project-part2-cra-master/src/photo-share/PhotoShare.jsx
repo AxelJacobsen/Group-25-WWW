@@ -40,7 +40,6 @@ class PhotoShare extends React.Component {
 											components to this part of the screen. You don&apos;t need to display anything here on the homepage,
 											so you should delete this Route component once you get started.
 										</Typography>
-										<img src={`/images/${PROG2053Models.photoOfUserModel('57231f1a30e4351f4e9f4bda')[3].file_name}`} alt="test"></img>
 									</Route>
 									<Route path="/photo-share/users/:userId">
 										<UserDetail />
