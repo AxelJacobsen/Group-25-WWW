@@ -25,6 +25,9 @@ class App extends React.Component {
 					<Route path="/photo-share">
 						<PhotoShare/>
 					</Route>
+					<Route path="/photo-share">
+						<PhotoShare/>
+					</Route>
 				</Switch>
 			</Router>
 		);
