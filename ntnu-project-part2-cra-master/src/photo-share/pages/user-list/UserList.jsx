@@ -32,14 +32,14 @@ class UserList extends React.Component {
 				<List component="nav">
 					{this.state.users.map((username) => {
 						return (
-							<Link to = {'/photo-share/users/${username._id}'} key={username._id}>
+							<a href = {'/photo-share/users/${username._id}'} key={username._id}>
 								<ListItem>
 									<ListItemText
 									primary= {`${username.first_name} ${username.last_name}`}
 									/>
 								</ListItem>
 							<Divider />
-						</Link>
+						</a>
 						);
 					})}
 				</List>

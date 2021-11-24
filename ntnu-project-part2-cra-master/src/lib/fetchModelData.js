@@ -11,7 +11,7 @@
     *    statusText:  The statusText from the xhr request
     *
 */
-
+const Promise = require('promise')
 
 function fetchModel(url) {
     return new Promise(function (resolve, reject) {

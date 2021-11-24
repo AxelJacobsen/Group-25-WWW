@@ -9,7 +9,6 @@ import {withRouter} from 'react-router-dom';
 import './UserDetail.css';
 import PROG2053Models from '../../../model-data/PhotoApp';
 import fetchModel from '../../../lib/fetchModelData';
-import userList from '../user-list/UserList';
 
 /**
  * Define UserDetail, a React componment of PROG2053 part #2
@@ -18,11 +17,18 @@ class UserDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: PROG2053Models.userModel(fetchModel(`/user/${this.props.match.params.userId}`))
+			user: undefined
 		}
+		const promise = fetchModel(`/user/${this.userId}`)
+		promise.then((response) => {
+			this.setState({user: response.data})
+		},
+			(reason) => {
+				console.log('Problem setting new user ID, userDetail')
+			});
 	}
 
-	componentDidUpdate = () => {
+	componentDidUpdate() {
 		const newUserID = this.props.match.params.userid;
 		if (this.state.user._Id !== newUserID) {
 			this.setState({user: PROG2053Models.userModel(newUserID)})
@@ -46,7 +52,7 @@ class UserDetail extends React.Component {
 				<br /> <Divider /> <br />
 			</Grid>
 		) : (
-			<div />
+			<div/>
 		)
 	}
 }
