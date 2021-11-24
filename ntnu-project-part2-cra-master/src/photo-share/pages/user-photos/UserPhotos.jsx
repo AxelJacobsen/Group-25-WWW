@@ -5,7 +5,9 @@ import {
 	Divider,
 	List,
 	ListItem,
-	ListItemText
+	ListItemText,
+	ListItemSecondaryAction,
+	ListItemAvatar
 } from '@material-ui/core';
 import './UserPhotos.css';
 import PROG2053Models from '../../../model-data/PhotoApp';
@@ -62,28 +64,29 @@ class UserPhotos extends React.Component {
 						return (
 							<List component="nav2" key = {photo.file_name}>
 								{/* Add image */}
+								<ListItem key = {photo.date_time}>
+									{/* Display the date of picture post */}
+									<ListItemText
+										secondary = {`Creation date: ${photo.date_time}`}
+									/>
+								</ListItem>
 								<img src={`/images/${photo.file_name}`}></img>
 
 								{/* Iterate photo comments (if they exist) */}
 								{photo.comments ? (
 									photo.comments.map((comment) => {
 										return (
-											<ListItem key = {comment.comment}>
-												{/* Display the comment */}
-												<ListItemText
-													primary= {`${comment.comment}`}
-												/>
-
+											<><ListItem key={comment.comment}>
 												{/*... and create a link to the commenter's profile */}
-												<a href = {`/photo-share/users/${comment.user._id}`}>
+												<a href={`/photo-share/users/${comment.user._id}`}>
 													<ListItemText
-														primary= {<br />}
-														secondary= {comment.user.first_name}
-													/>
+														secondary={`${comment.user.first_name} ${comment.date_time}`} />
 												</a>
-
-												<br />
-											</ListItem>
+											</ListItem><ListItem key={comment.comment}>
+													{/* Display the comment */}
+													<ListItemText
+														primary={`${comment.comment}`} />
+												</ListItem></>
 										);
 									})
 								) : (
