@@ -9,7 +9,6 @@ import fetchModel from '../../../lib/fetchModelData';
  * Define TopBar, a React componment of PROG2053 part #2
  */
 class TopBar extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {

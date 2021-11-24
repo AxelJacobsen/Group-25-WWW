@@ -5,12 +5,9 @@ import {
 	Divider,
 	List,
 	ListItem,
-	ListItemText,
-	ListItemSecondaryAction,
-	ListItemAvatar
+	ListItemText
 } from '@material-ui/core';
 import './UserPhotos.css';
-import PROG2053Models from '../../../model-data/PhotoApp';
 import {withRouter} from 'react-router';
 import fetchModel from '../../../lib/fetchModelData.js';
 
@@ -24,7 +21,6 @@ class UserPhotos extends React.Component {
 		this.state = {
 			photos: []
 		};
-
 		// Set userId
 		this.userId = this.props.match.params.userId;
 
@@ -83,10 +79,10 @@ class UserPhotos extends React.Component {
 														secondary={`${comment.user.first_name} ${comment.date_time}`} />
 												</a>
 											</ListItem><ListItem key={comment.comment}>
-													{/* Display the comment */}
-													<ListItemText
-														primary={`${comment.comment}`} />
-												</ListItem></>
+												{/* Display the comment */}
+												<ListItemText
+													primary={`${comment.comment}`} />
+											</ListItem></>
 										);
 									})
 								) : (
