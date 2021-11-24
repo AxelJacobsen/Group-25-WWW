@@ -29,14 +29,6 @@ class UserDetail extends React.Component {
 			});
 	}
 
-	componentDidUpdate() {
-		const newUserID = this.props.match.params.userid;
-		if (this.state.user._Id !== newUserID) {
-			this.setState({user: PROG2053Models.userModel(newUserID)})
-			this.props.changeView('TESTEST', `${this.state.user.first_name} ${this.state.user.last_name}`)
-		}
-	}
-
 	render() {
 		return this.state.user ? (
 			<Grid xs={6} item>
@@ -44,11 +36,11 @@ class UserDetail extends React.Component {
 					{`${this.state.user.first_name} ${this.state.user.last_name}`}
 					</Typography>
 						<Typography variant="h5">
-							{this.state.user.occupation} <br />
-							from {this.state.user.location}
+							{this.state.user.occupation} from {this.state.user.location}
 						</Typography>
-					<Typography variant="body1">
-						{this.state.user.description}
+					<Typography variant="body">
+						{this.state.user.description}<br />
+						<a href = {`/photo-share/photos/${this.state.user._id}`} key={this.state.user._id}>Click here to view users photos</a>
 				</Typography>
 				<br /> <Divider /> <br />
 			</Grid>
